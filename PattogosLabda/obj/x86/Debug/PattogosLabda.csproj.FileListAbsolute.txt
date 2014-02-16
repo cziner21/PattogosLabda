@@ -1,0 +1,5 @@
+d:\Work\Programok\ieszk\PattogosLabda\PattogosLabda\bin\Debug\PattogosLabda.exe
+d:\Work\Programok\ieszk\PattogosLabda\PattogosLabda\bin\Debug\PattogosLabda.pdb
+d:\Work\Programok\ieszk\PattogosLabda\PattogosLabda\obj\x86\Debug\PattogosLabda.csprojResolveAssemblyReference.cache
+d:\Work\Programok\ieszk\PattogosLabda\PattogosLabda\obj\x86\Debug\PattogosLabda.exe
+d:\Work\Programok\ieszk\PattogosLabda\PattogosLabda\obj\x86\Debug\PattogosLabda.pdb
