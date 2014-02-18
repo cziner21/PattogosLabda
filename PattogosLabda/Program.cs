@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+
 
 namespace PattogosLabda
 {
@@ -16,35 +18,29 @@ namespace PattogosLabda
         public PattogosLabda() {
             this.helyX = rnd.Next(0, 80);
             this.helyY = rnd.Next(0, 25);
-            this.iranyX = rnd.Next(0, 80);
-            this.iranyY = rnd.Next(0, 25);
-            Console.SetCursorPosition(helyX, helyY);
-            Console.Write("O");
-
+            this.iranyX = -1;
+            this.iranyY = -1;
         }
 
         public void Mozog() {
-            while (true) {
-                if (iranyX < helyX && iranyY < helyY) {
-                    Console.Write(" ");
-                    Console.SetCursorPosition(helyX - 1, helyY - 1);
-                    Console.Write("O");
+            while (true) {                
+                Console.SetCursorPosition(helyX, helyY);
+                Console.Write(' ');
+                if (helyX < 80 && helyX > 0 && helyY < 25 && helyY > 0) {
+                    helyX += iranyX;
+                    helyY += iranyY;
                 }
-                else if (iranyX < helyX && iranyY > helyY) {
-                    Console.Write(" ");
-                    Console.SetCursorPosition(helyX - 1, helyY + 1);
-                    Console.Write("O");
+                if (helyX == 0 || helyX == 80) {
+                    iranyX *= -1;
+                    helyX += iranyX;
                 }
-                else if (iranyX > helyX && iranyY < helyY) {
-                    Console.Write(" ");
-                    Console.SetCursorPosition(helyX + 1, helyY - 1);
-                    Console.Write("O");
+                if (helyY == 0 || helyY == 25) {
+                    iranyY *= -1;
+                    helyY += iranyY;
                 }
-                else if (iranyX > helyX && iranyY > helyY) {
-                    Console.Write(" ");
-                    Console.SetCursorPosition(helyX + 1, helyY + 1);
-                    Console.Write("O");
-                }
+                Console.SetCursorPosition(helyX, helyY);
+                Console.WriteLine("O");
+                Thread.Sleep(100);
             }
         }
     }
@@ -55,7 +51,7 @@ namespace PattogosLabda
 
             PattogosLabda labda = new PattogosLabda();
             labda.Mozog();
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
